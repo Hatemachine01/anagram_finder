@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ require 'csv'
+
+def mostrar_diccionary
+   CSV.foreach("words.csv").each do |palabra|
+    words = palabra[0]    
+    cano=words.split("").sort.join
+    Word.create(word: palabra[0], canonical: cano)
+  end
+end
+  mostrar_diccionary
+
