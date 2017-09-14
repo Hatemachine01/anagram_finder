@@ -1,8 +1,7 @@
-<div class="container">
-<h1>Anagram Searcher</h1>
-	<%= form_tag("/search", method: "get") do %>
- 		 <%= label_tag(:q, "Search for:") %>
-  		<%= text_field_tag(:q) %>
-  		<%= submit_tag("Search")  %>
-	<% end %>
-</div>
+<h1> <%= @response %> </h1>
+
+
+<%= form_for :anagram, url: finder_path do |form| %>
+  <%= form.text_field :anagram %>
+  <%= form.submit  %>
+<% end  %>
